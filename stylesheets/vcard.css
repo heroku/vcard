@@ -649,21 +649,12 @@ form p input, form p textarea {
   display: inline-block;
   margin: 0;
 }
-form legend {
-  display: none;
-}
-form .contact {
-  padding-top: 18px;
-}
-form .social {
-  margin-bottom: 0;
-  padding-bottom: 12px;
-}
-form .submit {
+form fieldset.submit {
+  overflow: none;
   padding: 12px 24px 10px 65px;
   text-align: center;
 }
-form .submit a:hover {
+form fieldset.submit a:hover {
   text-decoration: underline;
 }
 form label {
@@ -872,13 +863,29 @@ form input.disabled, form input[type=submit][disabled=disabled], form button.dis
     top: 10px;
     width: 300px;
   }
-  #content-form fieldset {
+  form {
+    left: 0;
+    margin: 0 0 20px 0;
+    position: relative;
+    top: 0;
+  }
+  form fieldset {
     height:auto;
     overflow: none;
+    width: 250px;
   }
-  #content-form fieldset.submit {
+  form fieldset.submit {
     height:50px;
-    overflow:auto;
+    overflow:none;
+    padding: 12px 24px 10px 24px;
+    text-align: center;
+  }
+  form fieldset.submit .button {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  form fieldset.submit span {
+    font-size: 14px;
   }
   #content-form form aside {
     display: none;
@@ -890,25 +897,5 @@ form input.disabled, form input[type=submit][disabled=disabled], form button.dis
   #content-form p {
     padding: 0;
   }
-  #content-form fieldset {
-    width: 250px;
-  }
-  #content-form form .submit {
-    padding: 12px 24px 10px 24px;
-    text-align: center;
-  }
-  #content-form form .submit .button {
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  #content-form form .submit span {
-    font-size: 14px;
-  }
-
-  form {
-    left: 0;
-    margin: 0 0 20px 0;
-    position: relative;
-    top: 0;
-  }
+ 
 }
