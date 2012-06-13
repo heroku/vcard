@@ -16,18 +16,22 @@ $(function() {
   $("#createVcardForm").submit(function(e) {
     e.preventDefault();
     
+    log('createVcardForm.submit();');
+    
+    $("#formBody p.error-message").remove();
+    
     if ($("#ownerName").val() == "") {
-      $("#formBody").prepend($("<p class='error-message'>").text("Full Name Required"))
+      $("#formBody").prepend($("<p class='error-message'>").text("Full Name Required"));
       return;
     }
 
     if ($("#ownerEmail").val() == "") {
-      $("#formBody").prepend($("<p class='error-message'>").text("Email Required"))
+      $("#formBody").prepend($("<p class='error-message'>").text("Email Required"));
       return;
     }
 
     if (!email_regex.test(email_address)){
-      $("#formBody").prepend($("<p class='error-message'>").text("Email Invalid"))
+      $("#formBody").prepend($("<p class='error-message'>").text("Email Invalid"));
       return;
     }
     
@@ -100,18 +104,18 @@ $(function() {
       PUBNUB.subscribe({
         channel: uuid,
         callback: function(message) {
-          console.log(message)
+          log(message);
           if (typeof(message.result) != "undefined") {
             window.location = message.result + "#withInstructions";
           }
           else if (typeof(message.error) != "undefined") {
-            $("#formBody").prepend($("<p class='error-message'>").text(message.error))
-            resetFormButtons()
+            $("#formBody").prepend($("<p class='error-message'>").text(message.error));
+            resetFormButtons();
           }
         },
         error: function(e) {
-          $("#formBody").prepend($("<p class='error-message'>").text(e))
-          resetFormButtons()
+          $("#formBody").prepend($("<p class='error-message'>").text(e));
+          resetFormButtons();
         }
       });
 
@@ -119,7 +123,7 @@ $(function() {
         channel  : "create-vcard",
         message  : data,
         callback : function(info) {
-          console.log(info);
+          log(info);
         }
       });
       
@@ -175,4 +179,8 @@ var email_regex = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0
 
 function resetFormButtons() {
   $("#submitCreateFieldset").children().fadeIn();
+}
+
+function log() {
+  if (window.console) console.log.apply(console,arguments);
 }
