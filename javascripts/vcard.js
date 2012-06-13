@@ -16,6 +16,8 @@ $(function() {
   $("#createVcardForm").submit(function(e) {
     e.preventDefault();
     
+    $("#formBody p.error-message").remove();
+    
     if ($("#ownerName").val() == "") {
       $("#formBody").prepend($("<p class='error-message'>").text("Full Name Required"))
       return;
