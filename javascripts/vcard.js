@@ -18,20 +18,22 @@ $(function() {
     
     log('createVcardForm.submit();');
     
-    $("#formBody p.error-message").remove();
-    
+    hideValidationErrors();
+
     if ($("#ownerName").val() == "") {
-      $("#formBody").prepend($("<p class='error-message'>").text("Full Name Required"));
-      return;
+      window.errant_inputs.push('ownerName');
     }
 
     if ($("#ownerEmail").val() == "") {
-      $("#formBody").prepend($("<p class='error-message'>").text("Email Required"));
-      return;
+      window.errant_inputs.push('ownerEmail');
     }
 
-    if (!email_regex.test(email_address)){
-      $("#formBody").prepend($("<p class='error-message'>").text("Email Invalid"));
+    if (!email_regex.test($("#ownerEmail").val())){
+      window.errant_inputs.push('ownerEmail');
+    }
+    
+    if (errant_inputs.length > 0) {
+      displayValidationErrors();
       return;
     }
     
@@ -110,12 +112,12 @@ $(function() {
           }
           else if (typeof(message.error) != "undefined") {
             $("#formBody").prepend($("<p class='error-message'>").text(message.error));
-            resetFormButtons();
+            enableFormButtons();
           }
         },
         error: function(e) {
           $("#formBody").prepend($("<p class='error-message'>").text(e));
-          resetFormButtons();
+          enableFormButtons();
         }
       });
 
@@ -127,10 +129,7 @@ $(function() {
         }
       });
       
-      $("#submitCreateFieldset").children().fadeOut();
-      
-      // todo: show progress bar or something
-        
+      disableFormButtons();        
     });
   });
 
@@ -176,8 +175,33 @@ $(function() {
 
 var email_regex = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
 
-function resetFormButtons() {
-  $("#submitCreateFieldset").children().fadeIn();
+function enableFormButtons() {
+  // $("#submitCreateFieldset").children().fadeIn();  
+  $("#submitCreateFieldset button").
+    text('Deploy vCard to Heroku').
+    removeClass('iconb');
+}
+
+function disableFormButtons() {
+  // $("#submitCreateFieldset").children().fadeOut();
+  $("#submitCreateFieldset button").
+    text('Deploying...').
+    removeClass('iconb');
+}
+
+
+function hideValidationErrors() {
+  $("#formBody p.error-message").remove();
+  $('input').removeClass('error');
+  window.errant_inputs = [];
+}
+
+function displayValidationErrors() {
+  for (var i in errant_inputs) {
+    log("errant_input: " + errant_inputs[i]);
+    $("#"+errant_inputs[i]).addClass('error');
+  }
+  $("#formBody").prepend($("<p class='error-message'>").text("The highlighted fields are required."));
 }
 
 function log() {
