@@ -45,30 +45,33 @@
   <div class="card">
     <section>
       <form id="createVcardForm" action="#">
-        <fieldset class="contact">
-          <legend>contact</legend>
-          <aside>
-            <div data-icon="&#x2b13;" class="avatar iconb"></div>
-            <p>avatar is provided by <a href="http://gravatar.com">gravatar</a></p>
-          </aside>
-          <p><label for="ownerName" class="icon-user"></label><input id="ownerName" name="ownerName" placeholder="full name" required/></p>
-          <p><label for="ownerTitle"></label><input id="ownerTitle" name="ownerTitle" placeholder="title/bio"/></p>
-          <p><label for="ownerEmail"></label><input id="ownerEmail" name="ownerEmail" placeholder="email" required/></p>
-          <p><label for="companyName"></label><input id="companyName" name="companyName" placeholder="company name"/></p>
-          <p><label for="companyUrl"></label><input id="companyUrl" name="companyUrl" placeholder="company url"/></p>
-          <p><label for="companyAddress"></label><textarea id="companyAddress" name="companyAddress" placeholder="company address" rows="3" cols="40"></textarea></p>
-        </fieldset>
-        <fieldset class="social">
-          <legend>social</legend>
-          <p><label for="twitterUsername" class="icon-twitter"></label><input id="twitterUsername" name="twitterUsername" placeholder="twitter username"/></p>
-          <p><label for="facebookUsername" class="icon-facebook"></label><input id="facebookUsername" name="facebookUsername" placeholder="facebook username"/></p>
-          <p><label for="linkedinUsername" class="icon-linkedin"></label><input id="linkedinUsername" name="linkedinUsername" placeholder="linkedin username"/></p>
-          <p><label for="flickrUsername" class="icon-flickr"></label><input id="flickrUsername" name="flickrUsername" placeholder="flickr username"/></p>
-          <p><label for="vimeoUsername" class="icon-vimeo"></label><input id="vimeoUsername" name="vimeoUsername" placeholder="vimeo username"/></p>
-          <p><label for="dribbleUsername" class="icon-dribbble"></label><input id="dribbleUsername" name="dribbleUsername" placeholder="dribbble username"/></p>
-          <p><label for="pinterestUsername" class="icon-pinterest"></label><input id="pinterestUsername" name="pinterestUsername" placeholder="pinterest username"/></p>
-          <p><label for="githubUsername" class="icon-github"></label><input id="githubUsername" name="githubUsername" placeholder="github username"/></p>
-        </fieldset>
+        <div id="content-form-input">
+
+          <fieldset class="contact">
+            <legend>contact</legend>
+            <aside>
+              <div data-icon="&#x2b13;" class="avatar iconb"></div>
+              <p>avatar is provided by <a href="http://gravatar.com">gravatar</a></p>
+            </aside>
+            <p><label for="ownerName" class="icon-user"></label><input id="ownerName" name="ownerName" placeholder="full name"/></p>
+            <p><label for="ownerTitle"></label><input id="ownerTitle" name="ownerTitle" placeholder="title/bio"/></p>
+            <p><label for="ownerEmail"></label><input id="ownerEmail" name="ownerEmail" placeholder="email" required/></p>
+            <p><label for="companyName"></label><input id="companyName" name="companyName" placeholder="company name"/></p>
+            <p><label for="companyUrl"></label><input id="companyUrl" name="companyUrl" placeholder="company url"/></p>
+            <p><label for="companyAddress"></label><textarea id="companyAddress" name="companyAddress" placeholder="company address" rows="3" cols="40"></textarea></p>
+          </fieldset>
+          <fieldset class="social">
+            <legend>social</legend>
+            <p><label for="twitterUsername" class="icon-twitter"></label><input id="twitterUsername" name="twitterUsername" placeholder="twitter username"/></p>
+            <p><label for="facebookUsername" class="icon-facebook"></label><input id="facebookUsername" name="facebookUsername" placeholder="facebook username"/></p>
+            <p><label for="linkedinUsername" class="icon-linkedin"></label><input id="linkedinUsername" name="linkedinUsername" placeholder="linkedin username"/></p>
+            <p><label for="flickrUsername" class="icon-flickr"></label><input id="flickrUsername" name="flickrUsername" placeholder="flickr username"/></p>
+            <p><label for="vimeoUsername" class="icon-vimeo"></label><input id="vimeoUsername" name="vimeoUsername" placeholder="vimeo username"/></p>
+            <p><label for="dribbleUsername" class="icon-dribbble"></label><input id="dribbleUsername" name="dribbleUsername" placeholder="dribbble username"/></p>
+            <p><label for="pinterestUsername" class="icon-pinterest"></label><input id="pinterestUsername" name="pinterestUsername" placeholder="pinterest username"/></p>
+            <p><label for="githubUsername" class="icon-github"></label><input id="githubUsername" name="githubUsername" placeholder="github username"/></p>
+          </fieldset>
+        </div>
         <fieldset class="submit">
           <button type="submit" data-icon="&#x2191;" class="iconb">Deploy vCard to Heroku</button>
           <span>or <a class="cancel" href="/cancel">Cancel</a></span>
@@ -83,7 +86,7 @@
     <section class="front">  
       <header>
       {{#ownerEmail}}
-        <aside style="background-image:url('http://www.gravatar.com/avatar/{{ownerEmail}}?s=220');"></aside>
+        <aside style="background-image:url('http://www.gravatar.com/avatar/{{ownerEmail}}?s=220&d=404');"></aside>
       {{/ownerEmail}}
       <hgroup>
         {{#ownerName}}
@@ -100,7 +103,7 @@
       <div class="container">
         <header>
           {{#ownerEmail}}
-            <aside style="background-image:url('http://www.gravatar.com/avatar/{{ownerEmail}}?s=54');"></aside>
+            <aside style="background-image:url('http://www.gravatar.com/avatar/{{ownerEmail}}?s=54&d=404');"></aside>
           {{/ownerEmail}}
           
           <hgroup>
@@ -183,15 +186,14 @@
 
 <!-- google analytics -->
 <script type="text/javascript">
-  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-  try{
-    var pageTracker = _gat._getTracker("UA-2989055-1");
-    pageTracker._setDomainName(".heroku.com");
-    pageTracker._trackPageview();
-  } catch(err) {}
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2989055-21']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 </script>
 <div  ssl="off" origin="pubsub.pubnub.com" id="pubnub"></div>
 <script src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>
