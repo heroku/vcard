@@ -757,10 +757,21 @@ form input.disabled, form input[type=submit][disabled=disabled], form button.dis
   width: 100%;
 }
 #instructions section p {
-  color: rgba(122, 122, 184, 0.5);
+  color: rgba(122, 122, 184, 0.8);
   font-size: 13px;
-  line-height:28px;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.43);
+}
+#instructions section p span, #instructions section a.icon-heroku {
+  display:inline-block;
+  height:30px;
+  line-height:30px;
+  margin-top:-12px;
+  margin-bottom:9px;
+}
+#instructions section p a.icon-heroku {
+  color: rgba(122, 122, 184, 0.8);
+  line-height:65px !important;
+  padding-left: 10px;
 }
 
 #make section p {
