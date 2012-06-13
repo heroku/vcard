@@ -85,9 +85,9 @@
   <div class="card">
     <section class="front">  
       <header>
-      {{#ownerEmail}}
-        <aside style="background-image:url('http://www.gravatar.com/avatar/{{ownerEmail}}?s=220&d=404');"></aside>
-      {{/ownerEmail}}
+      {{#ownerEmailMD5}}
+        <aside style="background-image:url('http://www.gravatar.com/avatar/{{ownerEmailMD5}}?s=220&d=404');"></aside>
+      {{/ownerEmailMD5}}
       <hgroup>
         {{#ownerName}}
           <h1>{{ownerName}}</h1>  
@@ -102,9 +102,9 @@
     <section class="back">
       <div class="container">
         <header>
-          {{#ownerEmail}}
-            <aside style="background-image:url('http://www.gravatar.com/avatar/{{ownerEmail}}?s=54&d=404');"></aside>
-          {{/ownerEmail}}
+          {{#ownerEmailMD5}}
+            <aside style="background-image:url('http://www.gravatar.com/avatar/{{ownerEmailMD5}}?s=54&d=404');"></aside>
+          {{/ownerEmailMD5}}
           
           <hgroup>
             {{#ownerName}}
@@ -116,17 +116,17 @@
           </hgroup>
         </header>
 
-        {{#ownerEmail}}
+        {{#ownerEmailRot13}}
         <dl>
           <dt>Email</dt>
           <dd>
             <script type="text/javascript">
-              document.write("<n uers=\"znvygb:{{ownerEmail}}\" ery=\"absbyybj\">{{ownerEmail}}</n>".replace(/[a-zA-Z]/g,
+              document.write("<n uers=\"znvygb:{{ownerEmailRot13}}\" ery=\"absbyybj\">{{ownerEmailRot13}}</n>".replace(/[a-zA-Z]/g,
                   function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);}));
             </script>
           </dd>
         </dl>
-        {{/ownerEmail}}
+        {{/ownerEmailRot13}}
         <dl>
           <dt>Work</dt>
           <dd>
