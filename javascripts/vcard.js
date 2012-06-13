@@ -169,6 +169,7 @@ $(function() {
     var newUrl = window.location.href.substr(0, withInstructionsIndex + 1);
     window.location.href = newUrl;
     $("#instructions").show();
+    $("#make").hide();
   }
 
 });
