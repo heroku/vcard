@@ -178,18 +178,29 @@ var email_regex = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0
 
 function enableFormButtons() {
   // $("#submitCreateFieldset").children().fadeIn();  
+  
+  $("#submitCreateFieldset span.cancel").fadeTo('slow', 1);
+  
   $("#submitCreateFieldset button").
     text('Deploy vCard to Heroku').
+    removeClass('deploying').
     removeClass('iconb');
+    
+  window.clearInterval(window.throbInterval);
 }
 
 function disableFormButtons() {
   // $("#submitCreateFieldset").children().fadeOut();
+
+  $("#submitCreateFieldset span.cancel").fadeTo('slow', 0);
+  
   $("#submitCreateFieldset button").
     text('Deploying...').
+    addClass('deploying').
     removeClass('iconb');
+    
+  window.throbInterval = setInterval("$('#submitCreateFieldset button').toggleClass('throbby')",800);
 }
-
 
 function hideValidationErrors() {
   $("#formBody p.error-message").remove();
