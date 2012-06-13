@@ -108,7 +108,7 @@ $(function() {
       
       $("#submitCreateFieldset").children().fadeOut();
       
-      // show progress bar or something
+      // todo: show progress bar or something
         
     });
   });
@@ -143,5 +143,12 @@ $(function() {
       $(this).removeClass('error');
     };
   });
+  
+  var withInstructionsIndex = window.location.href.indexOf("#withInstructions");
+  if (withInstructionsIndex > 0) {
+    var newUrl = window.location.href.substr(0, withInstructionsIndex);
+    window.location.href = newUrl;
+    $("#instructions").show();
+  }
 
 });
