@@ -16,6 +16,8 @@ $(function() {
   $("#createVcardForm").submit(function(e) {
     e.preventDefault();
     
+    log('createVcardForm.submit();');
+    
     $("#formBody p.error-message").remove();
     
     if ($("#ownerName").val() == "") {
@@ -102,7 +104,7 @@ $(function() {
       PUBNUB.subscribe({
         channel: uuid,
         callback: function(message) {
-          console.log(message)
+          log(message);
           if (typeof(message.result) != "undefined") {
             window.location = message.result + "#withInstructions";
           }
@@ -121,7 +123,7 @@ $(function() {
         channel  : "create-vcard",
         message  : data,
         callback : function(info) {
-          console.log(info);
+          log(info);
         }
       });
       
@@ -176,4 +178,8 @@ var email_regex = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0
 
 function resetFormButtons() {
   $("#submitCreateFieldset").children().fadeIn();
+}
+
+function log() {
+  if (window.console) console.log.apply(console,arguments);
 }
