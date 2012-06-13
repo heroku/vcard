@@ -17,23 +17,70 @@ $(function() {
     e.preventDefault();
     
     PUBNUB.uuid(function(uuid) {
+      
+      // required minimum params
       var data = {
         uuid: uuid,
         ownerName: $("#ownerName").val(),
-        ownerEmail: $("#ownerEmail").val(),
-        ownerTitle: $("#ownerTitle").val(),
-        companyName: $("#companyName").val(),
-        companyUrl: $("#companyUrl").val(),
-        companyAddress: $("#companyAddress").val(),
-        twitterUrl: "http://twitter.com/" + $("#twitterUsername").val(), // todo: remove @ if there
-        facebookUrl: "http://facebook.com/" + $("#facebookUsername").val(),
-        linkedinUrl: "http://linkedin.com/in/" + $("#linkedinUsername").val(),
-        flickrUrl: "http://flickr.com/" + $("#flickrUsername").val(),
-        vimeoUrl: "http://vimeo.com/" + $("#vimeoUsername").val(),
-        dribbleUrl: "http://dribble.com/" + $("#dribbleUsername").val(),
-        pinterestUrl: "http://pinterest.com/" + $("#pinterestUsername").val(),
-        githubUrl: "http://github.com/" + $("#githubUsername").val()
+        ownerEmail: $("#ownerEmail").val()
       };
+      
+      data.ownerEmailMD5 = $.md5($("#ownerEmail").val());
+      data.ownerEmailRot13 = $("#ownerEmail").val().replace(/[a-zA-Z]/g, function(c) {
+        return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);
+      });
+      
+      // optional params only go in if non-null
+      
+      if ($("#ownerTitle").val() != "") {
+        data.ownerTitle = $("#ownerTitle").val();
+      }
+
+      if ($("#companyName").val() != "") {
+        data.companyName = $("#companyName").val();
+      }
+
+      if ($("#companyUrl").val() != "") {
+        // todo: format with http if needed
+        data.companyUrl = $("#companyUrl").val();
+      }
+
+      if ($("#companyAddress").val() != "") {
+        // todo: verify proper breaking
+        data.companyAddress = $("#companyAddress").val();
+      }
+
+      if ($("#twitterUsername").val() != "") {
+        // todo: remove @ if there
+        data.twitterUrl = "http://twitter.com/" + $("#twitterUsername").val();
+      }
+
+      if ($("#facebookUsername").val() != "") {
+        data.facebookUrl = "http://facebook.com/" + $("#facebookUsername").val();
+      }
+
+      if ($("#linkedinUsername").val() != "") {
+        data.linkedinUrl = "http://linkedin.com/in/" + $("#linkedinUsername").val();
+      }
+
+      if ($("#vimeoUsername").val() != "") {
+        // todo: verify url
+        data.vimeoUrl = "http://vimeo.com/" + $("#vimeoUsername").val();
+      }
+
+      if ($("#dribbleUsername").val() != "") {
+        // todo: verify url
+        data.dribbleUrl = "http://dribble.com/" + $("#dribbleUsername").val();
+      }
+      
+      if ($("#pinterestUsername").val() != "") {
+        // todo: verify url
+        data.pinterestUrl = "http://pinterest.com/" + $("#pinterestUsername").val();
+      }
+
+      if ($("#githubUsername").val() != "") {
+        data.githubUrl = "http://github.com/" + $("#githubUsername").val();
+      }
       
       PUBNUB.subscribe({
         channel: uuid,
