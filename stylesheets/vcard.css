@@ -817,6 +817,9 @@ form input.disabled, form input[type=submit][disabled=disabled], form button.dis
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
+
+/* iphone */
+
 @media only screen and (max-device-width: 320px), only screen and (-webkit-min-device-pixel-ratio: 2) {
   body {
     padding: 10px;
@@ -866,9 +869,16 @@ form input.disabled, form input[type=submit][disabled=disabled], form button.dis
   #content-form {
     height: auto;
     left: 10px;
-    margin: 0 0 10px 0;
+    margin: 0px 0 10px 0;
     top: 10px;
     width: 300px;
+  }
+  #content-form #content-form-input {
+    height:auto;
+    overflow: none;
+  }
+  #content-form fieldset.submit {
+    height:50px;
   }
   #content-form form aside {
     display: none;
