@@ -238,8 +238,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 @font-face {
   font-family: "vcard";
-  src: url("/fonts/vcard.eot");
-  src: url("/fonts/vcard.eot?#iefix") format("embedded-opentype"), url("/fonts/vcard.svg#vcard") format("svg"), url("/fonts/vcard.woff") format("woff"), url("/fonts/vcard.ttf") format("truetype");
+  src: url("../fonts/vcard.eot");
+  src: url("../fonts/vcard.eot?#iefix") format("embedded-opentype"), url("../fonts/vcard.svg#vcard") format("svg"), url("../fonts/vcard.woff") format("woff"), url("../fonts/vcard.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -425,12 +425,12 @@ dl dd {
   width: inherit;
 }
 .card section {
-  background: url('/images/grain.png?1337620180'), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e0e2ef), color-stop(100%, #c7c9d5));
-  background: url('/images/grain.png?1337620180'), -webkit-linear-gradient(#e0e2ef, #c7c9d5);
-  background: url('/images/grain.png?1337620180'), -moz-linear-gradient(#e0e2ef, #c7c9d5);
-  background: url('/images/grain.png?1337620180'), -o-linear-gradient(#e0e2ef, #c7c9d5);
-  background: url('/images/grain.png?1337620180'), -ms-linear-gradient(#e0e2ef, #c7c9d5);
-  background: url('/images/grain.png?1337620180'), linear-gradient(#e0e2ef, #c7c9d5);
+  background: url('../images/grain.png?1337620180'), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e0e2ef), color-stop(100%, #c7c9d5));
+  background: url('../images/grain.png?1337620180'), -webkit-linear-gradient(#e0e2ef, #c7c9d5);
+  background: url('../images/grain.png?1337620180'), -moz-linear-gradient(#e0e2ef, #c7c9d5);
+  background: url('../images/grain.png?1337620180'), -o-linear-gradient(#e0e2ef, #c7c9d5);
+  background: url('../images/grain.png?1337620180'), -ms-linear-gradient(#e0e2ef, #c7c9d5);
+  background: url('../images/grain.png?1337620180'), linear-gradient(#e0e2ef, #c7c9d5);
   background-color: #e0e2ef;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -632,6 +632,11 @@ form input:focus, form textarea:focus {
   box-shadow: 0 0 4px 2px rgba(163, 163, 245, 0.5), 0 0 0 1px rgba(51, 51, 153, 0.5) inset;
   outline: none;
 }
+
+form input:focus.error, form textarea:focus.error {
+  box-shadow: 0 0 4px 2px hsla(344, 48%, 43%, 0.3), 0 0 0 1px hsla(344, 48%, 43%, 0.5) inset;
+}
+
 form p {
   margin: 0 0 8px 0;
   padding: 0 0px 0 190px;
@@ -669,6 +674,9 @@ form label {
 }
 form label.focused {
   color: #7c81c4;
+}
+form label.error {
+  color: hsla(344, 48%, 43%, 0.75);
 }
 form input[type=submit], form button[type=submit], form input[type=submit][disabled=disabled]:hover, form button[type=submit][disabled=disabled]:hover, form input.disabled, form button.disabled {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6363b0), color-stop(100%, #4c4c85));
