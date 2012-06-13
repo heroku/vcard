@@ -86,7 +86,7 @@ $(function() {
       $('label[for=ownerName]').addClass('error');
       $(this).addClass('error');
     }else{
-      $("form .avatar").removeClass('iconb').css("background-image", "url(http://www.gravatar.com/avatar.php?gravatar_id="+md5+"?s=160&d=404)");
+      $("form .avatar").removeClass('iconb').css("background-image", "url(http://www.gravatar.com/avatar/"+md5+"?s=160&d=404)");
       $('label[for=ownerName]').removeClass('error');
       $(this).removeClass('error');
     };
