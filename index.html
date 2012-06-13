@@ -29,6 +29,43 @@
         if (!pageYOffset) window.scrollTo(0, 1);
         }, 1000);
       }
+      
+      function createVcard() {
+          var data = {
+              ownerName: "",
+              ownerEmail: "",
+              ownerTitle: "",
+              companyName: "",
+              companyUrl: "",
+              companyAddress: "",
+              twitterUrl: "",
+              facebookUrl: "",
+              linkedinUrl: "",
+              flickrUrl: "",
+              vimeoUrl: "",
+              dribbleUrl: "",
+              pinterestUrl: "",
+              githubUrl: ""
+          };
+
+          $.ajax({
+              type: "POST",
+              url: "/",
+              data: JSON.stringify(data),
+              dataType: "json",
+              contentType: "application/json",
+              success: function(data) {
+                  console.log("resp : ", data);
+              },
+              error: function(error) {
+                  console.log("err : ", error);
+              }
+          });
+      }
+      
+      $(function() {
+          createVcard();
+      });
   </script>
 </head>
 
