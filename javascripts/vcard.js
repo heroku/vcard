@@ -21,17 +21,17 @@ $(function() {
     $("#formBody p.error-message").remove();
     
     if ($("#ownerName").val() == "") {
-      $("#formBody").prepend($("<p class='error-message'>").text("Full Name Required"))
+      $("#formBody").prepend($("<p class='error-message'>").text("Full Name Required"));
       return;
     }
 
     if ($("#ownerEmail").val() == "") {
-      $("#formBody").prepend($("<p class='error-message'>").text("Email Required"))
+      $("#formBody").prepend($("<p class='error-message'>").text("Email Required"));
       return;
     }
 
     if (!email_regex.test(email_address)){
-      $("#formBody").prepend($("<p class='error-message'>").text("Email Invalid"))
+      $("#formBody").prepend($("<p class='error-message'>").text("Email Invalid"));
       return;
     }
     
@@ -109,13 +109,13 @@ $(function() {
             window.location = message.result + "#withInstructions";
           }
           else if (typeof(message.error) != "undefined") {
-            $("#formBody").prepend($("<p class='error-message'>").text(message.error))
-            resetFormButtons()
+            $("#formBody").prepend($("<p class='error-message'>").text(message.error));
+            resetFormButtons();
           }
         },
         error: function(e) {
-          $("#formBody").prepend($("<p class='error-message'>").text(e))
-          resetFormButtons()
+          $("#formBody").prepend($("<p class='error-message'>").text(e));
+          resetFormButtons();
         }
       });
 
