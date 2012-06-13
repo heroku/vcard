@@ -16,35 +16,48 @@ $(function() {
   $("#createVcardForm").submit(function(e) {
     e.preventDefault();
     
-    var data = {
-      ownerName: $("#ownerName").val(),
-      ownerEmail: $("#ownerEmail").val(),
-      ownerTitle: $("#ownerTitle").val(),
-      companyName: $("#companyName").val(),
-      companyUrl: $("#companyUrl").val(),
-      companyAddress: $("#companyAddress").val(),
-      twitterUrl: "http://twitter.com/" + $("#twitterUsername").val(), // todo: remove @ if there
-      facebookUrl: "http://facebook.com/" + $("#facebookUsername").val(),
-      linkedinUrl: "http://linkedin.com/in/" + $("#linkedinUsername").val(),
-      flickrUrl: "http://flickr.com/" + $("#flickrUsername").val(),
-      vimeoUrl: "http://vimeo.com/" + $("#vimeoUsername").val(),
-      dribbleUrl: "http://dribble.com/" + $("#dribbleUsername").val(),
-      pinterestUrl: "http://pinterest.com/" + $("#pinterestUsername").val(),
-      githubUrl: "http://github.com/" + $("#githubUsername").val()
-    };
+    PUBNUB.uuid(function(uuid) {
+      var data = {
+        uuid: uuid,
+        ownerName: $("#ownerName").val(),
+        ownerEmail: $("#ownerEmail").val(),
+        ownerTitle: $("#ownerTitle").val(),
+        companyName: $("#companyName").val(),
+        companyUrl: $("#companyUrl").val(),
+        companyAddress: $("#companyAddress").val(),
+        twitterUrl: "http://twitter.com/" + $("#twitterUsername").val(), // todo: remove @ if there
+        facebookUrl: "http://facebook.com/" + $("#facebookUsername").val(),
+        linkedinUrl: "http://linkedin.com/in/" + $("#linkedinUsername").val(),
+        flickrUrl: "http://flickr.com/" + $("#flickrUsername").val(),
+        vimeoUrl: "http://vimeo.com/" + $("#vimeoUsername").val(),
+        dribbleUrl: "http://dribble.com/" + $("#dribbleUsername").val(),
+        pinterestUrl: "http://pinterest.com/" + $("#pinterestUsername").val(),
+        githubUrl: "http://github.com/" + $("#githubUsername").val()
+      };
+      
+      PUBNUB.subscribe({
+        channel: uuid,
+        callback: function(message) {
+          console.log(message)
+          if (typeof(message.result) != "undefined") {
+            window.location = message.result + "#withInstructions";
+          }
+          else if (typeof(message.error) != "undefined") {
+            window.alert(message.error);
+          }
+        },
+        error: function(e) {
+          window.alert(e);
+        }
+      });
 
-    $.ajax({
-      type: "POST",
-      url: "/",
-      data: JSON.stringify(data),
-      dataType: "json",
-      contentType: "application/json",
-      success: function(data) {
-        window.location = data.webUrl + "#withInstructions"
-      },
-      error: function(error) {
-        window.alert("error: " + error);
-      }
+      PUBNUB.publish({
+        channel  : "create-vcard",
+        message  : data,
+        callback : function(info) {
+          console.log(info);
+        }
+      });
     });
   });
 

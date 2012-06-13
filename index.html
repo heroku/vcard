@@ -30,6 +30,11 @@
         if (!pageYOffset) window.scrollTo(0, 1);
         }, 1000);
       }
+      
+      $(function() {
+          
+          
+      })
   </script>
 </head>
 
@@ -46,7 +51,7 @@
             <div data-icon="&#x2b13;" class="avatar iconb"></div>
             <p>avatar is provided by <a href="http://gravatar.com">gravatar</a></p>
           </aside>
-          <p><label for="ownerName" class="icon-user"></label><input id="ownerName" name="ownerName" placeholder="full name"/></p>
+          <p><label for="ownerName" class="icon-user"></label><input id="ownerName" name="ownerName" placeholder="full name" required/></p>
           <p><label for="ownerTitle"></label><input id="ownerTitle" name="ownerTitle" placeholder="title/bio"/></p>
           <p><label for="ownerEmail"></label><input id="ownerEmail" name="ownerEmail" placeholder="email" required/></p>
           <p><label for="companyName"></label><input id="companyName" name="companyName" placeholder="company name"/></p>
@@ -188,5 +193,7 @@
     pageTracker._trackPageview();
   } catch(err) {}
 </script>
+<div pub-key="pub-c-1f457f26-48aa-4ef8-814d-8fa1f8dcf226" sub-key="sub-c-ccde45dc-b567-11e1-8c0f-c5d65195a93d" ssl="off" origin="pubsub.pubnub.com" id="pubnub"></div>
+<script src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>
 </body>
 </html>
