@@ -90,11 +90,13 @@ $(function() {
             window.location = message.result + "#withInstructions";
           }
           else if (typeof(message.error) != "undefined") {
-            window.alert(message.error);
+            $("#formBody").prepend($("<p class='error-message'>").text(message.error))
+            resetFormButtons()
           }
         },
         error: function(e) {
-          window.alert(e);
+          $("#formBody").prepend($("<p class='error-message'>").text(e))
+          resetFormButtons()
         }
       });
 
@@ -117,6 +119,7 @@ $(function() {
   $('.cancel').click(function(e) {
     e.preventDefault();
     e.stopPropagation();
+    $("#formBody .error-message").remove();
     $('#make').fadeIn('slow');
     $('#content-form').removeClass('is-ready');
     $('#content').removeClass('hide').addClass('is-ready');
@@ -152,3 +155,7 @@ $(function() {
   }
 
 });
+
+function resetFormButtons() {
+  $("#submitCreateFieldset").children().fadeIn();
+}
