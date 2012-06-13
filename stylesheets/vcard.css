@@ -871,12 +871,13 @@ form input.disabled, form input[type=submit][disabled=disabled], form button.dis
   }
   form fieldset {
     height:auto;
-    overflow: none;
+    overflow: auto;
     width: 250px;
   }
   form fieldset.submit {
     height:50px;
     overflow:none;
+    overflow-y:none;
     padding: 12px 24px 10px 24px;
     text-align: center;
   }
