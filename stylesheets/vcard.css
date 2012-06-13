@@ -349,11 +349,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 body {
   background-attachment: fixed;
   background-color: #1a1a23;
-  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, #282735), color-stop(100%, #1a1a23));
-  background-image: -webkit-radial-gradient(#282735, #1a1a23);
-  background-image: -moz-radial-gradient(#282735, #1a1a23);
-  background-image: -o-radial-gradient(#282735, #1a1a23);
-  background-image: -ms-radial-gradient(#282735, #1a1a23);
+  background-image:-webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, #282735), color-stop(100%, #1A1A23));
+  background-image:-webkit-radial-gradient(#282735, #1a1a23);
+  background-image:-moz-radial-gradient(#282735, #1a1a23);
+  background-image:-o-radial-gradient(#282735, #1a1a23);
+  background-image:-ms-radial-gradient(#282735, #1a1a23);
   background-image: radial-gradient(#282735, #1a1a23);
   font-family: "helvetica neue", helvetica, arial, geneva, sans-serif;
   font-size: 13px;
@@ -539,10 +539,10 @@ dl dd {
 #content-form {
   height:435px;
   left: 50%;
-  margin: -220px 0 0 -245px;
+  margin: -220px 0 0 -251px;
   position: absolute;
   top: 50%;
-  width: 490px;
+  width: 502px;
   opacity: 0;
   z-index: -1;
 }
