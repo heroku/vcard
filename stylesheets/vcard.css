@@ -357,6 +357,8 @@ body {
   background-image: radial-gradient(#282735, #1a1a23);
   font-family: "helvetica neue", helvetica, arial, geneva, sans-serif;
   font-size: 13px;
+  overflow: hidden;
+
 }
 
 a:link, a:visited {
@@ -534,26 +536,28 @@ dl dd {
 }
 
 #content-form {
-  height: 720px;
+  height:465px;
   left: 50%;
-  margin: -363px 0 0 -250px;
+  margin: -220px 0 0 -250px;
   position: absolute;
   top: 50%;
-  width: 490px;
+  width: 500px;
   opacity: 0;
   z-index: -1;
+}
+#content-form #content-form-input {
+  height: 395px;
+  overflow-x: none;
+  overflow-y: scroll;
+}
+
+#content-form fieldset.submit {
+  border-top:2px solid #8D8E9F;
 }
 #content-form.is-ready {
   z-index: 10000;
 }
 
-form {
-  left: 50%;
-  margin: -360px 0 0 -245px;
-  position: absolute;
-  top: 50%;
-  width: 490px;
-}
 form .contact aside {
   float: left;
   width: 160px;
@@ -652,11 +656,6 @@ form .contact {
   padding-top: 18px;
 }
 form .social {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  -moz-box-shadow: 0 1px 0 1px rgba(10, 10, 41, 0.25), 0 1px 0 1px rgba(10, 10, 41, 0.1);
-  -webkit-box-shadow: 0 1px 0 1px rgba(10, 10, 41, 0.25), 0 1px 0 1px rgba(10, 10, 41, 0.1);
-  -o-box-shadow: 0 1px 0 1px rgba(10, 10, 41, 0.25), 0 1px 0 1px rgba(10, 10, 41, 0.1);
-  box-shadow: 0 1px 0 1px rgba(10, 10, 41, 0.25), 0 1px 0 1px rgba(10, 10, 41, 0.1);
   margin-bottom: 0;
   padding-bottom: 12px;
 }
@@ -882,13 +881,6 @@ form input.disabled, form input[type=submit][disabled=disabled], form button.dis
   }
   #content-form fieldset, #content-form fieldset.submit {
     width: 250px;
-  }
-  #content-form form.social {
-    border-bottom: 2px solid rgba(10, 10, 41, 0.25);
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    -o-box-shadow: none;
-    box-shadow: none;
   }
   #content-form form .submit {
     padding: 12px 24px 10px 24px;

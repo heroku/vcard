@@ -77,37 +77,39 @@
   <div class="card">
     <section>
       <form action="https://cloudforce-share.herokuapp.com/share" method="post">
-        <% if ENV["APP_NAME"] %>
-        <input type="hidden" name="APP_NAME" value="<%= ENV["APP_NAME"] %>"/>  
-        <% end %>
-        <% if ENV["PARENT_APP_NAME"] %>
-        <input type="hidden" name="PARENT_APP_NAME" value="<%= ENV["PARENT_APP_NAME"] %>"/>  
-        <% end %>
-        
-        <fieldset class="contact">
-          <legend>contact</legend>
-          <aside>
-            <div data-icon="&#x2b13;" class="avatar iconb"></div>
-            <p>avatar is provided by <a href="http://gravatar.com">gravatar</a></p>
-          </aside>
-          <p><label for="OWNER_NAME" class="icon-user"></label><input name="OWNER_NAME" placeholder="full name"/></p>
-          <p><label for="OWNER_TITLE"></label><input name="OWNER_TITLE" placeholder="title/bio"/></p>
-          <p><label for="OWNER_EMAIL"></label><input name="OWNER_EMAIL" placeholder="email" required/></p>
-          <p><label for="COMPANY_NAME"></label><input name="COMPANY_NAME" placeholder="company name"/></p>
-          <p><label for="COMPANY_URL"></label><input name="COMPANY_URL" placeholder="company url"/></p>
-          <p><label for="COMPANY_ADDRESS"></label><textarea name="COMPANY_ADDRESS" placeholder="company address" rows="3" cols="40"></textarea></p>
-        </fieldset>
-        <fieldset class="social">
-          <legend>social</legend>
-          <p><label for="TWITTER_URL" class="icon-twitter"></label><input name="TWITTER_URL" placeholder="twitter username"/></p>
-          <p><label for="FACEBOOK_URL" class="icon-facebook"></label><input name="FACEBOOK_URL" placeholder="facebook username"/></p>
-          <p><label for="LINKEDIN_URL" class="icon-linkedin"></label><input name="LINKEDIN_URL" placeholder="linkedin username"/></p>
-          <p><label for="FLICKR_URL" class="icon-flickr"></label><input name="FLICKR_URL" placeholder="flickr username"/></p>
-          <p><label for="VIMEO_URL" class="icon-vimeo"></label><input name="VIMEO_URL" placeholder="vimeo username"/></p>
-          <p><label for="DRIBBLE_URL" class="icon-dribbble"></label><input name="DRIBBLE_URL" placeholder="dribbble username"/></p>
-          <p><label for="PINTEREST_URL" class="icon-pinterest"></label><input name="PINTEREST_URL" placeholder="pinterest username"/></p>
-          <p><label for="GITHUB_URL" class="icon-github"></label><input name="GITHUB_URL" placeholder="github username"/></p>
-        </fieldset>
+        <div id="content-form-input">
+          <% if ENV["APP_NAME"] %>
+          <input type="hidden" name="APP_NAME" value="<%= ENV["APP_NAME"] %>"/>  
+          <% end %>
+          <% if ENV["PARENT_APP_NAME"] %>
+          <input type="hidden" name="PARENT_APP_NAME" value="<%= ENV["PARENT_APP_NAME"] %>"/>  
+          <% end %>
+          
+          <fieldset class="contact">
+            <legend>contact</legend>
+            <aside>
+              <div data-icon="&#x2b13;" class="avatar iconb"></div>
+              <p>avatar is provided by <a href="http://gravatar.com">gravatar</a></p>
+            </aside>
+            <p><label for="OWNER_NAME" class="icon-user"></label><input name="OWNER_NAME" placeholder="full name*"/></p>
+            <p><label for="OWNER_TITLE"></label><input name="OWNER_TITLE" placeholder="title/bio"/></p>
+            <p><label for="OWNER_EMAIL"></label><input name="OWNER_EMAIL" placeholder="email*" required/></p>
+            <p><label for="COMPANY_NAME"></label><input name="COMPANY_NAME" placeholder="company name"/></p>
+            <p><label for="COMPANY_URL"></label><input name="COMPANY_URL" placeholder="company url"/></p>
+            <p><label for="COMPANY_ADDRESS"></label><textarea name="COMPANY_ADDRESS" placeholder="company address" rows="3" cols="40"></textarea></p>
+          </fieldset>
+          <fieldset class="social">
+            <legend>social</legend>
+            <p><label for="TWITTER_URL" class="icon-twitter"></label><input name="TWITTER_URL" placeholder="twitter username"/></p>
+            <p><label for="FACEBOOK_URL" class="icon-facebook"></label><input name="FACEBOOK_URL" placeholder="facebook username"/></p>
+            <p><label for="LINKEDIN_URL" class="icon-linkedin"></label><input name="LINKEDIN_URL" placeholder="linkedin username"/></p>
+            <p><label for="FLICKR_URL" class="icon-flickr"></label><input name="FLICKR_URL" placeholder="flickr username"/></p>
+            <p><label for="VIMEO_URL" class="icon-vimeo"></label><input name="VIMEO_URL" placeholder="vimeo username"/></p>
+            <p><label for="DRIBBLE_URL" class="icon-dribbble"></label><input name="DRIBBLE_URL" placeholder="dribbble username"/></p>
+            <p><label for="PINTEREST_URL" class="icon-pinterest"></label><input name="PINTEREST_URL" placeholder="pinterest username"/></p>
+            <p><label for="GITHUB_URL" class="icon-github"></label><input name="GITHUB_URL" placeholder="github username"/></p>
+          </fieldset>
+        </div>
         <fieldset class="submit">
           <button type="submit" data-icon="&#x2191;" class="iconb">Deploy vCard to Heroku</button>
           <span>or <a class="cancel" href="/cancel">Cancel</a></span>
