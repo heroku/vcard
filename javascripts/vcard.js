@@ -29,4 +29,10 @@ $(function() {
     $('label[for=OWNER_NAME]').toggleClass('focused');
   });
 
+  $("input[name=OWNER_EMAIL]").focus().keyup(function() {
+    var email=$(this).val();
+    var md5=$.md5(email);
+    $("form .avatar").removeClass('iconb').css("background-image", "url(http://www.gravatar.com/avatar.php?gravatar_id="+md5+"?s=160)"); 
+  });
+
 });

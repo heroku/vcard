@@ -238,8 +238,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 @font-face {
   font-family: "vcard";
-  src: url("/fonts/vcard.eot");
-  src: url("/fonts/vcard.eot?#iefix") format("embedded-opentype"), url("/fonts/vcard.svg#vcard") format("svg"), url("/fonts/vcard.woff") format("woff"), url("/fonts/vcard.ttf") format("truetype");
+  src: url("../fonts/vcard.eot");
+  src: url("../fonts/vcard.eot?#iefix") format("embedded-opentype"), url("../fonts/vcard.svg#vcard") format("svg"), url("../fonts/vcard.woff") format("woff"), url("../fonts/vcard.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -425,12 +425,12 @@ dl dd {
   width: inherit;
 }
 .card section {
-  background: url('/images/grain.png?1337620180'), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e0e2ef), color-stop(100%, #c7c9d5));
-  background: url('/images/grain.png?1337620180'), -webkit-linear-gradient(#e0e2ef, #c7c9d5);
-  background: url('/images/grain.png?1337620180'), -moz-linear-gradient(#e0e2ef, #c7c9d5);
-  background: url('/images/grain.png?1337620180'), -o-linear-gradient(#e0e2ef, #c7c9d5);
-  background: url('/images/grain.png?1337620180'), -ms-linear-gradient(#e0e2ef, #c7c9d5);
-  background: url('/images/grain.png?1337620180'), linear-gradient(#e0e2ef, #c7c9d5);
+  background: url('../images/grain.png?1337620180'), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e0e2ef), color-stop(100%, #c7c9d5));
+  background: url('../images/grain.png?1337620180'), -webkit-linear-gradient(#e0e2ef, #c7c9d5);
+  background: url('../images/grain.png?1337620180'), -moz-linear-gradient(#e0e2ef, #c7c9d5);
+  background: url('../images/grain.png?1337620180'), -o-linear-gradient(#e0e2ef, #c7c9d5);
+  background: url('../images/grain.png?1337620180'), -ms-linear-gradient(#e0e2ef, #c7c9d5);
+  background: url('../images/grain.png?1337620180'), linear-gradient(#e0e2ef, #c7c9d5);
   background-color: #e0e2ef;
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
