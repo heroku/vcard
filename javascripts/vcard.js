@@ -146,7 +146,7 @@ $(function() {
   
   var withInstructionsIndex = window.location.href.indexOf("#withInstructions");
   if (withInstructionsIndex > 0) {
-    var newUrl = window.location.href.substr(0, withInstructionsIndex);
+    var newUrl = window.location.href.substr(0, withInstructionsIndex + 1);
     window.location.href = newUrl;
     $("#instructions").show();
   }
