@@ -40,7 +40,7 @@ $(function() {
       dataType: "json",
       contentType: "application/json",
       success: function(data) {
-        window.location = data.webUrl;
+        window.location = data.webUrl + "#withInstructions"
       },
       error: function(error) {
         window.alert("error: " + error);
