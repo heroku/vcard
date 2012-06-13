@@ -539,10 +539,10 @@ dl dd {
 #content-form {
   height:435px;
   left: 50%;
-  margin: -220px 0 0 -245px;
+  margin: -220px 0 0 -251px;
   position: absolute;
   top: 50%;
-  width: 490px;
+  width: 502px;
   opacity: 0;
   z-index: -1;
 }
