@@ -168,8 +168,8 @@ $(function() {
   if (withInstructionsIndex > 0) {
     var newUrl = window.location.href.substr(0, withInstructionsIndex + 1);
     window.location.href = newUrl;
-    $("#instructions").show();
-    $("#make").hide();
+    $("#instructions").show().delay(5000).fadeOut();
+    $("#make").hide().delay(5100).fadeIn();
   }
 
 });
