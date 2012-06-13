@@ -637,7 +637,7 @@ form input:focus, form textarea:focus {
   outline: none;
 }
 
-form input:focus.error, form textarea:focus.error {
+form input.error, form textarea.error {
   box-shadow: 0 0 4px 2px hsla(344, 48%, 43%, 0.3), 0 0 0 1px hsla(344, 48%, 43%, 0.5) inset;
 }
 
