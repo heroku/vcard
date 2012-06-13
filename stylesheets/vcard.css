@@ -546,24 +546,36 @@ dl dd {
   opacity: 0;
   z-index: -1;
 }
-#content-form #content-form-input {
-  height: 365px;
+#content-form fieldset {
+  height: 325px;
   overflow-x: none;
   overflow-y: scroll;
 }
 
 #content-form fieldset.submit {
   border-top:2px solid #8D8E9F;
+  height:45px;
+  overflow:none;
+  overflow-y:none;
 }
 #content-form.is-ready {
   z-index: 10000;
 }
 
-form .contact aside {
+form {
+  height: inherit;
+  display: block;
+  width: inherit;
+}
+form fieldset {
+  border: none;
+  padding: 20px 0 24px 24px;
+}
+form fieldset aside {
   float: left;
   width: 160px;
 }
-form .contact aside p {
+form fieldset aside p {
   color: #70708f;
   font-family: "lucida grande", "helvetica neue", helvetica, arial, geneva, sans-serif;
   font-size: 10px;
@@ -572,7 +584,7 @@ form .contact aside p {
   text-align: center;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
 }
-form .contact aside .avatar {
+form fieldset aside .avatar {
   background-color: rgba(252, 252, 253, 0.15);
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -592,19 +604,6 @@ form .contact aside .avatar {
   width: inherit;
 }
 
-form {
-  height: inherit;
-  display: block;
-  width: inherit;
-}
-form fieldset {
-  border: none;
-  margin-bottom: 10px;
-  padding: 0 24px 0 24px;
-}
-form fieldset:last-of-type {
-  margin-bottom: 0;
-}
 form input, form textarea {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e0e2ef), color-stop(100%, #ffffff));
   background: -webkit-linear-gradient(#e0e2ef, #ffffff);
@@ -873,12 +872,13 @@ form input.disabled, form input[type=submit][disabled=disabled], form button.dis
     top: 10px;
     width: 300px;
   }
-  #content-form #content-form-input {
+  #content-form fieldset {
     height:auto;
     overflow: none;
   }
   #content-form fieldset.submit {
     height:50px;
+    overflow:auto;
   }
   #content-form form aside {
     display: none;
@@ -890,7 +890,7 @@ form input.disabled, form input[type=submit][disabled=disabled], form button.dis
   #content-form p {
     padding: 0;
   }
-  #content-form fieldset, #content-form fieldset.submit {
+  #content-form fieldset {
     width: 250px;
   }
   #content-form form .submit {

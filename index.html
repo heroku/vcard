@@ -45,10 +45,7 @@
   <div class="card">
     <section>
       <form id="createVcardForm" action="#">
-        <div id="content-form-input">
-
-          <fieldset class="contact">
-            <legend>contact</legend>
+          <fieldset>
             <aside>
               <div data-icon="&#x2b13;" class="avatar iconb"></div>
               <p>avatar is provided by <a href="http://gravatar.com">gravatar</a></p>
@@ -59,9 +56,6 @@
             <p><label for="companyName"></label><input id="companyName" name="companyName" placeholder="company name"/></p>
             <p><label for="companyUrl"></label><input id="companyUrl" name="companyUrl" placeholder="company url"/></p>
             <p><label for="companyAddress"></label><textarea id="companyAddress" name="companyAddress" placeholder="company address" rows="3" cols="40"></textarea></p>
-          </fieldset>
-          <fieldset class="social">
-            <legend>social</legend>
             <p><label for="twitterUsername" class="icon-twitter"></label><input id="twitterUsername" name="twitterUsername" placeholder="twitter username"/></p>
             <p><label for="facebookUsername" class="icon-facebook"></label><input id="facebookUsername" name="facebookUsername" placeholder="facebook username"/></p>
             <p><label for="linkedinUsername" class="icon-linkedin"></label><input id="linkedinUsername" name="linkedinUsername" placeholder="linkedin username"/></p>
@@ -71,7 +65,6 @@
             <p><label for="pinterestUsername" class="icon-pinterest"></label><input id="pinterestUsername" name="pinterestUsername" placeholder="pinterest username"/></p>
             <p><label for="githubUsername" class="icon-github"></label><input id="githubUsername" name="githubUsername" placeholder="github username"/></p>
           </fieldset>
-        </div>
         <fieldset id="submitCreateFieldset" class="submit">
           <button type="submit" data-icon="&#x2191;" class="iconb">Deploy vCard to Heroku</button>
           <span>or <a class="cancel" href="/cancel">Cancel</a></span>
