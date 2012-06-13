@@ -105,6 +105,11 @@ $(function() {
           console.log(info);
         }
       });
+      
+      $("#submitCreateFieldset").children().fadeOut();
+      
+      // show progress bar or something
+        
     });
   });
 
