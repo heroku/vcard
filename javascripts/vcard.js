@@ -192,13 +192,13 @@ function enableFormButtons() {
 function disableFormButtons() {
   // $("#submitCreateFieldset").children().fadeOut();
 
-  $("#submitCreateFieldset span.cancel").fadeTo('slow', 0);
+  $("#submitCreateFieldset span.cancel").fadeTo('slow', 0).hide();
   
   $("#submitCreateFieldset button").
     text('Deploying...').
     addClass('deploying').
-    removeClass('iconb');
-    
+    removeClass('iconb').
+    attr('disabled', 'disabled');
   window.throbInterval = setInterval("$('#submitCreateFieldset button').toggleClass('throbby')",800);
 }
 
