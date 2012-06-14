@@ -102,6 +102,10 @@ $(function() {
       if ($("#githubUsername").val() != "") {
         data.githubUrl = "http://github.com/" + $("#githubUsername").val();
       }
+
+      if ($("#flickrUsername").val() != "") {
+        data.flickrUrl = "http://flickr.com/" + $("#flickrUsername").val();
+      }
       
       PUBNUB.subscribe({
         channel: uuid,
