@@ -668,7 +668,7 @@ form label.focused {
 form label.error {
   color: hsla(344, 48%, 43%, 0.75);
 }
-form input[type=submit], form button[type=submit], form input[type=submit][disabled=disabled]:hover, form button[type=submit][disabled=disabled]:hover, form input.disabled, form button.disabled {
+form input[type=submit], form button[type=submit] {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6363b0), color-stop(100%, #4c4c85));
   background: -webkit-linear-gradient(#6363b0, #4c4c85);
   background: -moz-linear-gradient(#6363b0, #4c4c85);
@@ -706,6 +706,9 @@ form input[type=submit], form button[type=submit], form input[type=submit][disab
   opacity: 1;
 }
 
+form button[type=submit].deploying, form button[type=submit].throbby {
+  margin-left:-30px;
+} 
 form button[type=submit].deploying {
   opacity: 0.8;
 }
@@ -714,7 +717,7 @@ form button[type=submit].throbby {
   opacity: .6;
 }
 
-form input[type=submit]:hover, form button[type=submit]:hover {
+form input[type=submit].iconb:hover, form button[type=submit].iconb:hover {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7474be), color-stop(100%, #464695));
   background: -webkit-linear-gradient(#7474be, #464695);
   background: -moz-linear-gradient(#7474be, #464695);
